@@ -49,39 +49,53 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 | Examples:	my-controller/index	-> my_controller/index
 |		my-controller/my-method	-> my_controller/my_method
 */
+$route['default_controller'] = '';
+$route['admin'] = 'admin/login';
+$route['dashboard'] = 'admin/dashboard';
+$route['logout'] = 'admin/login/logout';
+$route['category'] = 'admin/category';
+$route['add_category'] = 'admin/category/add_category';
+$route['sub_category'] = 'admin/category/sub_category';
+$route['add_sub_category'] = 'admin/category/add_sub_category';
+$route['songs'] = 'admin/song';
+$route['add_new_song'] = 'admin/song/add_new_song';
+$route['users'] = 'admin/user';
+
+
+// api route
+$route['api/category']['GET'] = 'api/api/get_category';
+$route['api/sub_category']['GET'] = 'api/api/getSubCategories';
+$route['api/get_song']['GET'] = 'api/api/getSong';
+$route['api/song_details']['GET'] = 'api/api/song_details';
+$route['api/login_new_user']['POST'] = 'api/api/register';
+$route['api/login']['POST'] = 'api/api/login';
+$route['api/list_song']['GET'] = 'api/api/list_song';
+$route['api/search_song']['GET'] = 'api/api/search_song';
+$route['api/add_favorite']['POST'] = 'api/api/add_favorite';
+$route['api/list_favorite_songs']['GET'] = 'api/api/list_favorite_songs';
+$route['api/profile']['GET'] = 'api/api/profile';
 
 
 
 
-$route['default_controller'] = 'login';
+
+
+
+
+
+
+
+
+
+
+
+
+// $route['update_subcategory/(:num)'] = 'admin/category/update_subcategory/$1';
+
+
+
+
+
+
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
-
-/* ================= AUTH ================= */
-$route['login'] = 'login';
-
-/* ================= DASHBOARD ================= */
-$route['dashboard'] = 'dashboard';
-$route['sw.js'] = 'welcome/sw';
-
-/* ================= PROJECT ================= */
-$route['project/add'] = 'project/add';
-$route['project/list'] = 'project/list';
-$route['project/store'] = 'project/store';
-$route['project/edit/(:num)'] = 'project/edit/$1';
-$route['project/update/(:num)'] = 'project/update/$1';
-
-/* ================= USER ================= */
-$route['user'] = 'user/index';
-$route['user/add'] = 'user/add';
-$route['user/store'] = 'user/store';
-$route['user/edit/(:num)'] = 'user/edit/$1';        // ✅ FIX
-$route['user/update/(:num)'] = 'user/update/$1';    // ✅ FIX
-$route['user/delete/(:num)'] = 'user/delete/$1';
-
-/* ================= TASK ================= */
-$route['task'] = 'task/index';
-$route['task/add'] = 'task/add';
-$route['task/save'] = 'task/save';
-
-$route['task/delete/(:num)'] = 'task/delete/$1';
